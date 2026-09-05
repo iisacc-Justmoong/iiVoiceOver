@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.24)
+project(iiVoiceOverConsumer LANGUAGES CXX)
+enable_testing()
+find_package(iiVoiceOver 0.1.0 CONFIG REQUIRED)
+add_executable(iiVoiceOver_consumer ../hello_world.cpp)
+target_link_libraries(iiVoiceOver_consumer PRIVATE iiVoiceOver::iiVoiceOver)
+set_target_properties(iiVoiceOver_consumer PROPERTIES CXX_EXTENSIONS OFF)
+add_test(NAME iiVoiceOver.installed_consumer COMMAND iiVoiceOver_consumer)
