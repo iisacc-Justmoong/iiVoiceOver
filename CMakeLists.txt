@@ -14,13 +14,13 @@ include(CMakePackageConfigHelpers)
 include(CTest)
 find_package(Qt6 6.8.3 EXACT REQUIRED COMPONENTS Core)
 
-add_library(iiVoiceOver SHARED iiVoiceOver.cpp iiVoiceOver.h)
+add_library(iiVoiceOver SHARED src/iiVoiceOver.cpp src/iiVoiceOver.h)
 add_library(iiVoiceOver::iiVoiceOver ALIAS iiVoiceOver)
 target_compile_features(iiVoiceOver PUBLIC cxx_std_20)
 target_compile_definitions(iiVoiceOver PRIVATE IIVOICEOVER_BUILDING_LIBRARY)
 target_link_libraries(iiVoiceOver PUBLIC Qt6::Core)
 target_include_directories(iiVoiceOver PUBLIC
-    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>"
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>"
     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
 set_target_properties(iiVoiceOver PROPERTIES
     VERSION ${PROJECT_VERSION}
@@ -41,7 +41,7 @@ install(TARGETS iiVoiceOver EXPORT iiVoiceOverTargets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
-install(FILES iiVoiceOver.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(FILES src/iiVoiceOver.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(FILES README.md DESTINATION ${CMAKE_INSTALL_DATADIR}/iiVoiceOver)
 set(iiVoiceOver_PACKAGE_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/iiVoiceOver")
 configure_package_config_file(cmake/iiVoiceOverConfig.cmake.in
