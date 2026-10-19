@@ -1,5 +1,10 @@
 # iiVoiceOver
 
+Package release: **0.1.1** (2026-10-19). This patch packages the current
+source snapshot; build, test and installation evidence is recorded in the SDK
+patch-release report. Earlier versioned feature notes remain historical.
+
+
 Version 0.1.0 dynamic placeholder SDK using C++20 and Qt 6.8.3 Core. Public functions return only `Hello world!` strings, and product features corresponding to SDK names are not yet implemented. No external dependencies other than Qt are added.
 
 <a id="공개-api"></a>
@@ -51,7 +56,7 @@ cmake --install build
 Under the default installation path, `include/iiVoiceOver.h`, `lib/` shared libraries, `lib/cmake/iiVoiceOver/` Config·ConfigVersion·Targets, and `share/iiVoiceOver/README.md` are created. Windows runtime DLLs are installed to `bin/`. The default installation path applies only when this SDK is the top-level CMake project. When configuring directly with CMake, if HOME is missing, USERPROFILE is used as the default installation path.
 
 ```cmake
-find_package(iiVoiceOver 0.1.0 CONFIG REQUIRED)
+find_package(iiVoiceOver 0.1.1 CONFIG REQUIRED)
 target_link_libraries(my_application PRIVATE iiVoiceOver::iiVoiceOver)
 ```
 
