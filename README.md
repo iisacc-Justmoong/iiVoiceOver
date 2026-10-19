@@ -1,5 +1,7 @@
 # iiVoiceOver
 
+[Windows 빌드 및 실행](docs/WindowsBuildAndRun.md)
+
 **0.2.0** provides native, local neural text-to-speech in C++23. It replaces the
 old Qt string placeholder with voice-model, synthesis and audio-result objects.
 The included English voice says **"Hello World"** using Piper, eSpeak NG and
