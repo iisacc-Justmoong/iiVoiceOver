@@ -48,6 +48,12 @@ if(IIVOICEOVER_BUILD_EXAMPLES)
     install(TARGETS iiVoiceOver_hello_world RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif()
 if(BUILD_TESTING)
+    if(WIN32 AND CMAKE_GENERATOR STREQUAL "Ninja")
+        add_test(NAME iiVoiceOver.windowsBuildGraph COMMAND "${CMAKE_COMMAND}"
+            "-DNINJA_EXECUTABLE=${CMAKE_MAKE_PROGRAM}"
+            "-DBUILD_DIRECTORY=${CMAKE_CURRENT_BINARY_DIR}"
+            -P "${CMAKE_CURRENT_SOURCE_DIR}/tests/native_piper_build_graph.cmake")
+    endif()
     add_executable(iiVoiceOver_tests tests/tts_tests.cpp)
     target_link_libraries(iiVoiceOver_tests PRIVATE iiVoiceOver::iiVoiceOver iiFileProvider::Native Threads::Threads)
     set_target_properties(iiVoiceOver_tests PROPERTIES CXX_EXTENSIONS OFF)

@@ -60,6 +60,11 @@ else()
     set(iivo_piper_library "${CMAKE_CURRENT_BINARY_DIR}/lib/libpiper.so")
     set(iivo_piper_rpath "$ORIGIN")
 endif()
+set(iivo_piper_byproducts "${iivo_piper_library}")
+if(WIN32)
+    # Ninja also needs a producer for the import library used by consumers.
+    list(APPEND iivo_piper_byproducts "${CMAKE_CURRENT_BINARY_DIR}/lib/piper.lib")
+endif()
 set(iivo_external_build "${CMAKE_CURRENT_BINARY_DIR}/native/build")
 ExternalProject_Add(iiVoiceOver_piper
     SOURCE_DIR "${iivo_piper_source}/libpiper"
@@ -76,7 +81,7 @@ ExternalProject_Add(iiVoiceOver_piper
         "-DONNXRUNTIME_DIR=${iivo_ort_root}"
         "-DCMAKE_DISABLE_FIND_PACKAGE_onnxruntime=TRUE"
         "-DPIPER_BUILD_TESTS=OFF" "-DENABLE_CLANG_TIDY=OFF"
-    BUILD_BYPRODUCTS "${iivo_piper_library}"
+    BUILD_BYPRODUCTS ${iivo_piper_byproducts}
     LOG_DOWNLOAD ON LOG_CONFIGURE ON LOG_BUILD ON LOG_INSTALL ON LOG_OUTPUT_ON_FAILURE ON)
 ExternalProject_Add_StepDependencies(iiVoiceOver_piper patch "${CMAKE_CURRENT_LIST_DIR}/PatchPiper.cmake")
 add_library(iiVoiceOver_piper_native SHARED IMPORTED)

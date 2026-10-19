@@ -76,6 +76,10 @@ installed Qt-free iiSDKCore 0.18+ and iiFileProviderNative 0.8+. The default SDK
 prefixes are discovered under `$HOME/.local/SDK/`. Supply `CMAKE_PREFIX_PATH`
 for custom dependency installations.
 
+On Windows, the native Piper DLL and its MSVC import library are both declared
+as external build outputs. The Ninja build-graph regression checks that linking
+the SDK can produce `lib/piper.lib` from a clean build without a manual first pass.
+
 ```sh
 ./install.sh
 ```
