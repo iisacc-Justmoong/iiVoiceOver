@@ -143,7 +143,7 @@ iiFileProvider remain separately installed SDK dependencies.
 
 ## License and source layout
 
-SPDX-License-Identifier: **AGPL-3.0-only**. Self-written code and documentation
+SPDX-License-Identifier: **MIT**. Self-written code and documentation
 use [LICENSE](LICENSE). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for
 Piper GPLv3, eSpeak GPLv3+, Open JTalk/MeCab, ONNX Runtime MIT, header notices and
 voice provenance. The upstream voice card states that it was trained from

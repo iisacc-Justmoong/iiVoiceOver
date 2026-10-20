@@ -1,6 +1,6 @@
 # Third-party notices
 
-iiVoiceOver's own code is AGPL-3.0-only. Native dependencies and voice assets
+iiVoiceOver's own code is MIT. Native dependencies and voice assets
 retain their separate licenses. No Python runtime or Qt library is required.
 
 | Component | Pinned source | License / notice |
