@@ -1,0 +1,219 @@
+{
+  "format": "iisacc.agent-document",
+  "schema_version": 1,
+  "document_id": "urn:iisacc:document:2f828e5d42a6035cf4041ddbf6a603477b5abc91bc8cfc2f0d4d8959f94857a4",
+  "project": {
+    "id": "urn:iisacc:project:SDK%2FiiVoiceOver",
+    "name": "iiVoiceOver",
+    "root": "SDK/iiVoiceOver",
+    "kind": "sdk"
+  },
+  "source": {
+    "path": "THIRD_PARTY_NOTICES.md",
+    "sha256": "ac1fa0f89cbe1fe606221205c7a73806173648f30247cbf903aead5c0efd02b4",
+    "bytes": 2465,
+    "line_count": 32,
+    "encoding": "utf-8",
+    "language": "en"
+  },
+  "document": {
+    "title": "Third-party notices",
+    "role": "guide",
+    "authority": "markdown_source"
+  },
+  "blocks": [
+    {
+      "id": "b000001",
+      "kind": "heading",
+      "start_line": 1,
+      "end_line": 1,
+      "raw": "# Third-party notices\n",
+      "level": 1,
+      "title": "Third-party notices"
+    },
+    {
+      "id": "b000002",
+      "kind": "blank",
+      "start_line": 2,
+      "end_line": 2,
+      "raw": "\n"
+    },
+    {
+      "id": "b000003",
+      "kind": "paragraph",
+      "start_line": 3,
+      "end_line": 4,
+      "raw": "iiVoiceOver's own code is MIT. Native dependencies and voice assets\nretain their separate licenses. No Python runtime or Qt library is required.\n"
+    },
+    {
+      "id": "b000004",
+      "kind": "blank",
+      "start_line": 5,
+      "end_line": 5,
+      "raw": "\n"
+    },
+    {
+      "id": "b000005",
+      "kind": "table",
+      "start_line": 6,
+      "end_line": 15,
+      "raw": "| Component | Pinned source | License / notice |\n| --- | --- | --- |\n| Native libpiper | OHF-Voice/piper1-gpl `619f513580c04dff5ef9a680f6f3f6979ed94d2e` | GPL-3.0, upstream `COPYING` |\n| eSpeak NG | espeak-ng/espeak-ng `212928b394a96e8fd2096616bfd54e17845c48f6` | GPL-3.0-or-later, upstream `COPYING`; language data retain upstream terms |\n| ucd-tools | Included in the pinned eSpeak NG source | Upstream `COPYING` and Unicode `COPYING.UCD` notices |\n| Open JTalk frontend | tsukumijima/open_jtalk `4a1ef70897689d2ee6b8f9be35454a3a4b15b289` | Upstream BSD / MeCab notices, copied from the native dependency |\n| ONNX Runtime | Microsoft 1.22.0 native CPU distribution | MIT, `LICENSE`, `ThirdPartyNotices.txt`, `Privacy.md` |\n| nlohmann/json 3.11.2 | Header supplied by pinned libpiper | MIT; Niels Lohmann; installed `nlohmann-json-MIT.txt` and header notices |\n| uni-algo | Header supplied by pinned libpiper | Public domain or MIT; full installed header notice |\n| en_US-ljspeech-medium | rhasspy/piper-voices `c10ece1aade47bb51c153c893d14e5bf8e5b7117` | Repository metadata: MIT; voice MODEL_CARD: public-domain LJ Speech data, trained from scratch |\n",
+      "columns": [
+        "Component",
+        "Pinned source",
+        "License / notice"
+      ],
+      "rows": [
+        [
+          "Native libpiper",
+          "OHF-Voice/piper1-gpl `619f513580c04dff5ef9a680f6f3f6979ed94d2e`",
+          "GPL-3.0, upstream `COPYING`"
+        ],
+        [
+          "eSpeak NG",
+          "espeak-ng/espeak-ng `212928b394a96e8fd2096616bfd54e17845c48f6`",
+          "GPL-3.0-or-later, upstream `COPYING`; language data retain upstream terms"
+        ],
+        [
+          "ucd-tools",
+          "Included in the pinned eSpeak NG source",
+          "Upstream `COPYING` and Unicode `COPYING.UCD` notices"
+        ],
+        [
+          "Open JTalk frontend",
+          "tsukumijima/open_jtalk `4a1ef70897689d2ee6b8f9be35454a3a4b15b289`",
+          "Upstream BSD / MeCab notices, copied from the native dependency"
+        ],
+        [
+          "ONNX Runtime",
+          "Microsoft 1.22.0 native CPU distribution",
+          "MIT, `LICENSE`, `ThirdPartyNotices.txt`, `Privacy.md`"
+        ],
+        [
+          "nlohmann/json 3.11.2",
+          "Header supplied by pinned libpiper",
+          "MIT; Niels Lohmann; installed `nlohmann-json-MIT.txt` and header notices"
+        ],
+        [
+          "uni-algo",
+          "Header supplied by pinned libpiper",
+          "Public domain or MIT; full installed header notice"
+        ],
+        [
+          "en_US-ljspeech-medium",
+          "rhasspy/piper-voices `c10ece1aade47bb51c153c893d14e5bf8e5b7117`",
+          "Repository metadata: MIT; voice MODEL_CARD: public-domain LJ Speech data, trained from scratch"
+        ]
+      ]
+    },
+    {
+      "id": "b000006",
+      "kind": "blank",
+      "start_line": 16,
+      "end_line": 16,
+      "raw": "\n"
+    },
+    {
+      "id": "b000007",
+      "kind": "paragraph",
+      "start_line": 17,
+      "end_line": 22,
+      "raw": "The voice is an English single-speaker model. Its upstream model card and\nsource/hashes are preserved in `models/` and installed with the package.\nThe dataset identifies its text, recordings and annotations as public domain:\n<https://keithito.com/LJ-Speech-Dataset/>. The model card is preserved from\n<https://huggingface.co/rhasspy/piper-voices/blob/c10ece1aade47bb51c153c893d14e5bf8e5b7117/en/en_US/ljspeech/medium/MODEL_CARD>.\nOther Piper voices have independent terms and are not licensed by this notice.\n"
+    },
+    {
+      "id": "b000008",
+      "kind": "blank",
+      "start_line": 23,
+      "end_line": 23,
+      "raw": "\n"
+    },
+    {
+      "id": "b000009",
+      "kind": "paragraph",
+      "start_line": 24,
+      "end_line": 32,
+      "raw": "The build downloads native dependency sources and SHA-256-verified inference\nand model archives. `cmake/PatchPiper.cmake` makes these local libpiper changes:\nexception-safe construction, disabling ONNX telemetry after environment\ncreation, UTF-8 conversion of ONNX paths on Windows, C++23 compilation, and\nrestricting native ONNX library lookup to the supplied distribution.\nRebuilding this repository applies the same patch. Fetched sources remain in\n`build/`; upstream notices install under `share/licenses/iiVoiceOver/`.\nOpen JTalk is built by libpiper, but this initial API accepts only\neSpeak-phonemized voice configurations.\n"
+    }
+  ],
+  "outline": [
+    {
+      "block_id": "b000001",
+      "parent_id": null,
+      "level": 1,
+      "title": "Third-party notices",
+      "anchor": "third-party-notices",
+      "start_line": 1
+    }
+  ],
+  "indexes": {
+    "directive_candidates": [
+      {
+        "block_id": "b000003",
+        "line": 4,
+        "text": "retain their separate licenses. No Python runtime or Qt library is required.",
+        "basis": "lexical_match",
+        "context": "paragraph"
+      }
+    ],
+    "commands": [],
+    "links": [],
+    "tables": [
+      {
+        "block_id": "b000005",
+        "columns": [
+          "Component",
+          "Pinned source",
+          "License / notice"
+        ],
+        "rows": [
+          [
+            "Native libpiper",
+            "OHF-Voice/piper1-gpl `619f513580c04dff5ef9a680f6f3f6979ed94d2e`",
+            "GPL-3.0, upstream `COPYING`"
+          ],
+          [
+            "eSpeak NG",
+            "espeak-ng/espeak-ng `212928b394a96e8fd2096616bfd54e17845c48f6`",
+            "GPL-3.0-or-later, upstream `COPYING`; language data retain upstream terms"
+          ],
+          [
+            "ucd-tools",
+            "Included in the pinned eSpeak NG source",
+            "Upstream `COPYING` and Unicode `COPYING.UCD` notices"
+          ],
+          [
+            "Open JTalk frontend",
+            "tsukumijima/open_jtalk `4a1ef70897689d2ee6b8f9be35454a3a4b15b289`",
+            "Upstream BSD / MeCab notices, copied from the native dependency"
+          ],
+          [
+            "ONNX Runtime",
+            "Microsoft 1.22.0 native CPU distribution",
+            "MIT, `LICENSE`, `ThirdPartyNotices.txt`, `Privacy.md`"
+          ],
+          [
+            "nlohmann/json 3.11.2",
+            "Header supplied by pinned libpiper",
+            "MIT; Niels Lohmann; installed `nlohmann-json-MIT.txt` and header notices"
+          ],
+          [
+            "uni-algo",
+            "Header supplied by pinned libpiper",
+            "Public domain or MIT; full installed header notice"
+          ],
+          [
+            "en_US-ljspeech-medium",
+            "rhasspy/piper-voices `c10ece1aade47bb51c153c893d14e5bf8e5b7117`",
+            "Repository metadata: MIT; voice MODEL_CARD: public-domain LJ Speech data, trained from scratch"
+          ]
+        ]
+      }
+    ]
+  },
+  "provenance": {
+    "generator": "workspace-docs",
+    "version": "1.0.0",
+    "profile": "lossless-blocks-v1",
+    "derived": true
+  }
+}

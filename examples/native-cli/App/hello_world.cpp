@@ -1,9 +1,14 @@
 #include <iiVoiceOver.h>
 #include <iiSDKCore/Process/Process.h>
+#include "FileProviderAdapter.h"
 #include <iostream>
 #include <string>
 
 int main(int argc, char** argv) {
+    if (argc == 2 && std::string_view(argv[1]) == "--status") {
+        std::cout << "{\"synthesisAvailable\":false,\"pcmExportAvailable\":true}\n";
+        return 0;
+    }
     std::filesystem::path output = "hello-world.wav";
     std::string text = "Hello World";
     bool play = false;
@@ -23,7 +28,7 @@ int main(int argc, char** argv) {
     iiVoiceOver::SpeechSynthesizer synthesizer(std::move(*model));
     auto audio = synthesizer.synthesize(text);
     if (!audio) { std::cerr << audio.error().message << '\n'; return 1; }
-    auto saved = audio->saveWave(output);
+    auto saved = iiVoiceOverFileProvider::saveWave(*audio, output);
     if (!saved) { std::cerr << saved.error().message << '\n'; return 1; }
     std::cout << "voice=" << id << " text=\"" << text << "\" samples=" << audio->samples.size()
               << " sample_rate=" << audio->sample_rate << " channels=" << audio->channels

@@ -1,0 +1,282 @@
+{
+  "format": "iisacc.agent-document",
+  "schema_version": 1,
+  "document_id": "urn:iisacc:document:e3fb2bbbdbfaa16f2a49a21f8e35a77f2de967bcebc90da5e6e4d751de1a1a4e",
+  "project": {
+    "id": "urn:iisacc:project:SDK%2FiiVoiceOver",
+    "name": "iiVoiceOver",
+    "root": "SDK/iiVoiceOver",
+    "kind": "sdk"
+  },
+  "source": {
+    "path": "README.md",
+    "sha256": "9dcc2ca99f8676222c96eb5c87048a2430c1b1d28ba9c628f7c29b398830fb98",
+    "bytes": 1938,
+    "line_count": 42,
+    "encoding": "utf-8",
+    "language": "en"
+  },
+  "document": {
+    "title": "iiVoiceOver",
+    "role": "overview",
+    "authority": "markdown_source"
+  },
+  "blocks": [
+    {
+      "id": "b000001",
+      "kind": "heading",
+      "start_line": 1,
+      "end_line": 1,
+      "raw": "# iiVoiceOver\n",
+      "level": 1,
+      "title": "iiVoiceOver"
+    },
+    {
+      "id": "b000002",
+      "kind": "blank",
+      "start_line": 2,
+      "end_line": 2,
+      "raw": "\n"
+    },
+    {
+      "id": "b000003",
+      "kind": "paragraph",
+      "start_line": 3,
+      "end_line": 7,
+      "raw": "A C++23 PCM audio API with explicit availability reporting for speech synthesis.\nThe previous Piper/ONNX learned voice backend and its bundled voice are retired.\n`SpeechSynthesizer::available()` returns false; `VoiceModel::load()` and `bundled()`\nreport unsupported model inference. No model or native inference runtime is\nautomatically downloaded.\n"
+    },
+    {
+      "id": "b000004",
+      "kind": "blank",
+      "start_line": 8,
+      "end_line": 8,
+      "raw": "\n"
+    },
+    {
+      "id": "b000005",
+      "kind": "paragraph",
+      "start_line": 9,
+      "end_line": 14,
+      "raw": "`SpeechAudio` retains owned float32 PCM, duration calculation, and validated\nPCM16 WAV encoding through `waveBytes()`. The independent SDK does not link\nother SDKs. An application can compose it with iiFileProvider using the\nseparately configured [file consumer](examples/file-provider), which publishes\nexclusively and never overwrites an existing destination. PCM encoding does not\nrequire a learned model.\n"
+    },
+    {
+      "id": "b000006",
+      "kind": "blank",
+      "start_line": 15,
+      "end_line": 15,
+      "raw": "\n"
+    },
+    {
+      "id": "b000007",
+      "kind": "paragraph",
+      "start_line": 16,
+      "end_line": 18,
+      "raw": "`Result` and `ErrorCode` now belong to `iiVoiceOver` rather than iiSDKCore.\nThe `SpeechAudio::saveWave(path)` member was removed: migrate to the consumer\nadapter or publish `waveBytes()` in the application, and rebuild callers.\n"
+    },
+    {
+      "id": "b000008",
+      "kind": "blank",
+      "start_line": 19,
+      "end_line": 19,
+      "raw": "\n"
+    },
+    {
+      "id": "b000009",
+      "kind": "fenced_code",
+      "start_line": 20,
+      "end_line": 24,
+      "raw": "```sh\ncmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON\ncmake --build build --parallel 2\nctest --test-dir build --output-on-failure\n```\n",
+      "language": "sh",
+      "code": "cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON\ncmake --build build --parallel 2\nctest --test-dir build --output-on-failure\n",
+      "closed": true
+    },
+    {
+      "id": "b000010",
+      "kind": "blank",
+      "start_line": 25,
+      "end_line": 25,
+      "raw": "\n"
+    },
+    {
+      "id": "b000011",
+      "kind": "paragraph",
+      "start_line": 26,
+      "end_line": 29,
+      "raw": "The [native CLI](examples/native-cli) is a separate consumer of iiVoiceOver,\niiSDKCore and iiFileProvider. It reports `synthesisAvailable` and\n`pcmExportAvailable`. A speech request fails explicitly until a separate\nsupported native backend is implemented.\n"
+    },
+    {
+      "id": "b000012",
+      "kind": "blank",
+      "start_line": 30,
+      "end_line": 30,
+      "raw": "\n"
+    },
+    {
+      "id": "b000013",
+      "kind": "paragraph",
+      "start_line": 31,
+      "end_line": 33,
+      "raw": "See [the runtime retirement contract](docs/RuntimeRetirement.md) and the public\nAPI in `src/iiVoiceOver.h`. Historical Piper licensing records do not describe a\nruntime included in current builds.\n"
+    },
+    {
+      "id": "b000014",
+      "kind": "blank",
+      "start_line": 34,
+      "end_line": 34,
+      "raw": "\n"
+    },
+    {
+      "id": "b000015",
+      "kind": "html",
+      "start_line": 35,
+      "end_line": 35,
+      "raw": "<!-- workspace-docs:readme:start -->\n"
+    },
+    {
+      "id": "b000016",
+      "kind": "heading",
+      "start_line": 36,
+      "end_line": 36,
+      "raw": "## Documentation entry points\n",
+      "level": 2,
+      "title": "Documentation entry points"
+    },
+    {
+      "id": "b000017",
+      "kind": "blank",
+      "start_line": 37,
+      "end_line": 37,
+      "raw": "\n"
+    },
+    {
+      "id": "b000018",
+      "kind": "list",
+      "start_line": 38,
+      "end_line": 41,
+      "raw": "- Human overview: this English `README.md`.\n- Agent instructions: [AGENT.md](AGENT.md).\n- Human documentation: [documentation index](docs/README.md).\n- Structured agent documentation: [agent index](docs/agent-index.json).\n",
+      "items": [
+        {
+          "marker": "-",
+          "text": "Human overview: this English `README.md`.",
+          "checked": null
+        },
+        {
+          "marker": "-",
+          "text": "Agent instructions: [AGENT.md](AGENT.md).",
+          "checked": null
+        },
+        {
+          "marker": "-",
+          "text": "Human documentation: [documentation index](docs/README.md).",
+          "checked": null
+        },
+        {
+          "marker": "-",
+          "text": "Structured agent documentation: [agent index](docs/agent-index.json).",
+          "checked": null
+        }
+      ]
+    },
+    {
+      "id": "b000019",
+      "kind": "html",
+      "start_line": 42,
+      "end_line": 42,
+      "raw": "<!-- workspace-docs:readme:end -->\n"
+    }
+  ],
+  "outline": [
+    {
+      "block_id": "b000001",
+      "parent_id": null,
+      "level": 1,
+      "title": "iiVoiceOver",
+      "anchor": "iivoiceover",
+      "start_line": 1
+    },
+    {
+      "block_id": "b000016",
+      "parent_id": "b000001",
+      "level": 2,
+      "title": "Documentation entry points",
+      "anchor": "documentation-entry-points",
+      "start_line": 36
+    }
+  ],
+  "indexes": {
+    "directive_candidates": [
+      {
+        "block_id": "b000005",
+        "line": 13,
+        "text": "exclusively and never overwrites an existing destination. PCM encoding does not",
+        "basis": "lexical_match",
+        "context": "paragraph"
+      },
+      {
+        "block_id": "b000013",
+        "line": 32,
+        "text": "API in `src/iiVoiceOver.h`. Historical Piper licensing records do not describe a",
+        "basis": "lexical_match",
+        "context": "paragraph"
+      }
+    ],
+    "commands": [
+      {
+        "block_id": "b000009",
+        "language": "sh",
+        "code": "cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON\ncmake --build build --parallel 2\nctest --test-dir build --output-on-failure\n"
+      }
+    ],
+    "links": [
+      {
+        "block_id": "b000005",
+        "label": "file consumer",
+        "target": "examples/file-provider",
+        "kind": "relative",
+        "line": 12
+      },
+      {
+        "block_id": "b000011",
+        "label": "native CLI",
+        "target": "examples/native-cli",
+        "kind": "relative",
+        "line": 26
+      },
+      {
+        "block_id": "b000013",
+        "label": "the runtime retirement contract",
+        "target": "docs/RuntimeRetirement.md",
+        "kind": "relative",
+        "line": 31
+      },
+      {
+        "block_id": "b000018",
+        "label": "AGENT.md",
+        "target": "AGENT.md",
+        "kind": "relative",
+        "line": 39
+      },
+      {
+        "block_id": "b000018",
+        "label": "documentation index",
+        "target": "docs/README.md",
+        "kind": "relative",
+        "line": 40
+      },
+      {
+        "block_id": "b000018",
+        "label": "agent index",
+        "target": "docs/agent-index.json",
+        "kind": "relative",
+        "line": 41
+      }
+    ],
+    "tables": []
+  },
+  "provenance": {
+    "generator": "workspace-docs",
+    "version": "1.0.0",
+    "profile": "lossless-blocks-v1",
+    "derived": true
+  }
+}

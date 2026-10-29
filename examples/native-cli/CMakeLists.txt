@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.31)
+# iisdk:consumer-application
+project(iiVoiceOverNativeCli LANGUAGES CXX)
+include(GNUInstallDirs)
+find_package(iiVoiceOver 0.2 CONFIG REQUIRED)
+find_package(iiSDKCore 0.18 CONFIG REQUIRED)
+find_package(iiFileProviderNative 0.8 CONFIG REQUIRED)
+add_executable(iiVoiceOver_hello_world App/hello_world.cpp)
+target_compile_features(iiVoiceOver_hello_world PRIVATE cxx_std_23)
+target_include_directories(iiVoiceOver_hello_world PRIVATE ../file-provider/App)
+target_link_libraries(iiVoiceOver_hello_world PRIVATE iiVoiceOver::iiVoiceOver iiSDKCore::iiSDKCore iiFileProvider::Native)
+set_target_properties(iiVoiceOver_hello_world PROPERTIES OUTPUT_NAME ii-voice-over CXX_EXTENSIONS OFF)
+install(TARGETS iiVoiceOver_hello_world RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

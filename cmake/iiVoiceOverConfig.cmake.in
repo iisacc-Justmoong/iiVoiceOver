@@ -1,5 +1,3 @@
 @PACKAGE_INIT@
-include(CMakeFindDependencyMacro)
-find_dependency(iiSDKCore 0.18 CONFIG COMPONENTS Contracts HINTS "$ENV{HOME}/.local/SDK/iiSDKCore")
 include("${CMAKE_CURRENT_LIST_DIR}/iiVoiceOverTargets.cmake")
 check_required_components(iiVoiceOver)

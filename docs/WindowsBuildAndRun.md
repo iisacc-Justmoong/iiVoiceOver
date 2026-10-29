@@ -1,3 +1,10 @@
+> 현재 iiVoiceOver 본체는 다른 SDK를 찾거나 링크하지 않는다. C++23과 테스트용 Python으로
+> `cmake -S . -B build -DIIVOICEOVER_BUILD_EXAMPLES=OFF`, `cmake --build build`,
+> `ctest --test-dir build`를 사용한다. 파일 저장은 `examples/file-provider`, CLI는
+> `examples/native-cli`를 별도 구성한다. 이번 변경의 Windows 빌드·실행은 검증하지 않았다.
+>
+> 아래 내용은 폐기 전 구현의 과거 기록이다. 현재 모델 실행은 지원하지 않으며 [현재 폐기 계약](RuntimeRetirement.md)을 따른다.
+
 # iiVoiceOver: Windows 빌드 및 실행
 
 Piper·eSpeak NG·ONNX Runtime CPU로 실제 음성을 합성하는 Qt 비의존 C++23 SDK이다.

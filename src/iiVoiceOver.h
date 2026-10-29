@@ -1,9 +1,10 @@
 #pragma once
 
-#include <iiSDKCore/Core/Result/Result.h>
 #include <chrono>
 #include <cstddef>
 #include <cstdint>
+#include <exception>
+#include <expected>
 #include <filesystem>
 #include <stop_token>
 #include <string>
@@ -23,7 +24,12 @@
 
 namespace iiVoiceOver {
 
-using ii::core::Result;
+enum class ErrorCode { invalid_argument, out_of_range, not_found, already_exists, full,
+    cycle, unsupported, failed, cancelled, closed, busy, wrong_executor };
+struct Error final { ErrorCode code; std::string message; std::exception_ptr cause{}; };
+template<class T> using Result = std::expected<T, Error>;
+// Validates Unicode scalar UTF-8, including embedded NUL as valid UTF-8.
+[[nodiscard]] IIVOICEOVER_EXPORT bool isValidUtf8(std::string_view text) noexcept;
 
 struct ModelFiles final {
     std::filesystem::path model;
@@ -37,8 +43,8 @@ struct VoiceMetadata final {
     std::uint32_t speakers{};
 };
 
-// Immutable, copyable description. load() validates paths and configuration;
-// the native ONNX session is constructed when speech is requested.
+// Compatibility model descriptor. The previous learned voice backend is retired;
+// loading a model returns an explicit unsupported result.
 class IIVOICEOVER_EXPORT VoiceModel final {
 public:
     [[nodiscard]] static Result<VoiceModel> load(ModelFiles files);
@@ -55,27 +61,23 @@ private:
 struct SpeechOptions final {
     float speed = 1.0F; // [0.25, 4]; 2 means twice as fast.
     std::uint32_t speaker = 0;
-    std::size_t maximum_samples = 2'880'000; // Retained output limit, not an ONNX memory budget.
+    std::size_t maximum_samples = 2'880'000; // Retained PCM output limit.
 };
 struct IIVOICEOVER_EXPORT SpeechAudio final {
     std::vector<float> samples; // Interleaved float32 PCM, [-1, 1].
     std::uint32_t sample_rate{};
     std::uint16_t channels = 1;
     [[nodiscard]] std::chrono::duration<double> duration() const noexcept;
-    // PCM16 little-endian WAV. Atomic exclusive publication via iiFileProvider;
-    // an existing destination is never replaced. Parent directories must exist.
-    [[nodiscard]] Result<void> saveWave(const std::filesystem::path& destination) const;
+    // Encode a PCM16 little-endian WAV without performing file I/O.
+    [[nodiscard]] Result<std::string> waveBytes() const;
 };
 
 class IIVOICEOVER_EXPORT SpeechSynthesizer final {
 public:
     explicit SpeechSynthesizer(VoiceModel model) : model_(std::move(model)) {}
     [[nodiscard]] const VoiceModel& model() const noexcept { return model_; }
-    // Blocking native CPU inference. UTF-8, 1..4096 bytes, no embedded NUL.
-    // Safe from multiple callers: the process-global eSpeak backend serializes
-    // native sessions. Run this on a worker for a GUI/runtime event loop.
-    // Cancellation is checked while waiting and between native sentence chunks;
-    // an ONNX Run already in progress is allowed to finish. No partial audio is returned.
+    [[nodiscard]] static bool available() noexcept;
+    // Retired model inference returns unsupported; PCM export is independent.
     [[nodiscard]] Result<SpeechAudio> synthesize(std::string_view text,
         SpeechOptions options = {}, std::stop_token stop = {}) const;
 private:

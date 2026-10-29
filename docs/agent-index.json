@@ -1,0 +1,76 @@
+{
+  "format": "iisacc.agent-document-index",
+  "schema_version": 1,
+  "project": {
+    "id": "urn:iisacc:project:SDK%2FiiVoiceOver",
+    "name": "iiVoiceOver",
+    "root": "SDK/iiVoiceOver",
+    "kind": "sdk"
+  },
+  "documentation_root": "docs",
+  "agent_schema": "docs/agent-document.schema.json",
+  "documents": [
+    {
+      "document_id": "urn:iisacc:document:8612e92a627d874cfa5b73e6963bf5e12d33385c3bd939d4e121f98316fdd74c",
+      "source": "AGENT.md",
+      "agent_json": "docs/entrypoints/AGENT.agent.json",
+      "source_sha256": "7161861783bb7576a14b325af8d3e8fd347127edb84b7974f598dc681c0c0615",
+      "role": "instructions"
+    },
+    {
+      "document_id": "urn:iisacc:document:e3fb2bbbdbfaa16f2a49a21f8e35a77f2de967bcebc90da5e6e4d751de1a1a4e",
+      "source": "README.md",
+      "agent_json": "docs/entrypoints/README.agent.json",
+      "source_sha256": "9dcc2ca99f8676222c96eb5c87048a2430c1b1d28ba9c628f7c29b398830fb98",
+      "role": "overview"
+    },
+    {
+      "document_id": "urn:iisacc:document:2f828e5d42a6035cf4041ddbf6a603477b5abc91bc8cfc2f0d4d8959f94857a4",
+      "source": "THIRD_PARTY_NOTICES.md",
+      "agent_json": "docs/entrypoints/THIRD_PARTY_NOTICES.agent.json",
+      "source_sha256": "ac1fa0f89cbe1fe606221205c7a73806173648f30247cbf903aead5c0efd02b4",
+      "role": "guide"
+    },
+    {
+      "document_id": "urn:iisacc:document:4cd430637a9aea35af7d9ab156b5686e60efa49b48cfab90c3d6d7615315d453",
+      "source": "docs/README.md",
+      "agent_json": "docs/README.agent.json",
+      "source_sha256": "d36c22fc3262f5d62adf844908b378291bc3507cf54bf54afe0d49788de6ea21",
+      "role": "overview"
+    },
+    {
+      "document_id": "urn:iisacc:document:53669724c0b16c6df40f2bb96b49534dedea58165c7500565ea6b77c640e20c1",
+      "source": "docs/RuntimeRetirement.md",
+      "agent_json": "docs/RuntimeRetirement.agent.json",
+      "source_sha256": "29901442c1d2c2f6c578746b0bc53e173c10b111c53d9ac4f376f64d48b0f246",
+      "role": "guide"
+    },
+    {
+      "document_id": "urn:iisacc:document:f2f5d52704b2db42db617455ed9f2a8ba39c87dc26d72aaeeb56772a450116ee",
+      "source": "docs/WindowsBuildAndRun.md",
+      "agent_json": "docs/WindowsBuildAndRun.agent.json",
+      "source_sha256": "9816bac00021e20c92732344b3456f36815de3480ad799e022c7019754c95d1b",
+      "role": "guide"
+    },
+    {
+      "document_id": "urn:iisacc:document:82256b5f2e258359f60734852db8dc07b876f41bb65e29ecab5fc4c44ec15926",
+      "source": "docs/documentation-structure.md",
+      "agent_json": "docs/documentation-structure.agent.json",
+      "source_sha256": "6ca6b3ccb9d07abeb978ddcdebca58f2c3de360c23dbac128850316af5324d0a",
+      "role": "guide"
+    }
+  ],
+  "layout": {
+    "human_entry": "README.md",
+    "agent_entry": "AGENT.md",
+    "human_format": "markdown",
+    "agent_format": "structured_json",
+    "source_authority": "markdown"
+  },
+  "provenance": {
+    "generator": "workspace-docs",
+    "version": "1.0.0",
+    "profile": "lossless-blocks-v1",
+    "derived": true
+  }
+}
