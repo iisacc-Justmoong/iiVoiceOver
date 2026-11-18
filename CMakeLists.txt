@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.31)
 project(iiVoiceOver VERSION 0.2.0 LANGUAGES CXX)
+include(./cmake/ModuleImports.cmake)
 if(PROJECT_IS_TOP_LEVEL AND CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     if(DEFINED ENV{HOME})
         set(CMAKE_INSTALL_PREFIX "$ENV{HOME}/.local/SDK/iiVoiceOver" CACHE PATH "Installation prefix" FORCE)
